@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- Base application theme. -->
+  <style name="Theme.PemasaranProduk" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <!-- Primary brand color. -->
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryVariant">@color/primaryVariant</item>
+    <item name="colorOnPrimary">@color/onPrimaryHigh</item>
+    <item name="colorOnSurface">@color/onSurfaceHigh</item>
+    <item name="colorAccent">@color/primary</item>
+    <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    <!-- Status bar color. -->
+    <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    <!-- Customize your theme here. -->
+  </style>
+
+  <style name="Button.Small" parent="Widget.MaterialComponents.Button">
+    <item name="cornerRadius">@dimen/normal_100</item>
+    <item name="android:paddingTop">@dimen/normal_75</item>
+    <item name="android:paddingBottom">@dimen/normal_75</item>
+    <item name="android:paddingStart">@dimen/normal_100</item>
+    <item name="android:paddingEnd">@dimen/normal_100</item>
+    <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle2</item>
+    <item name="textAllCaps">true</item>
+  </style>
+</resources>

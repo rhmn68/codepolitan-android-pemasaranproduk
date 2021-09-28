@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:map="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".presentation.location.LocationActivity">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/container_map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+      android:id="@+id/map"
+      android:name="com.google.android.gms.maps.SupportMapFragment"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      map:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+      android:id="@+id/icon_pin_map"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_baseline_location_on_40"
+      map:tint="@color/primary"
+      android:contentDescription="@null"
+      map:layout_constraintTop_toTopOf="@id/map"
+      map:layout_constraintBottom_toBottomOf="@id/map"
+      map:layout_constraintStart_toStartOf="@id/map"
+      map:layout_constraintEnd_toEndOf="@id/map"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

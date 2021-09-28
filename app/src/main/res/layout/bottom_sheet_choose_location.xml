@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/bottom_sheet_choose_location"
+  app:behavior_peekHeight="100dp"
+  app:behavior_hideable="true"
+  android:elevation="@dimen/normal_100"
+  app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fab_back_choose_location"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:fabSize="mini"
+    android:backgroundTint="@color/surface"
+    android:layout_marginStart="@dimen/normal_100"
+    android:contentDescription="@null"
+    android:src="@drawable/ic_baseline_arrow_back_24"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fab_current_location_choose_location"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:fabSize="mini"
+    android:backgroundTint="@color/surface"
+    android:layout_marginEnd="@dimen/normal_100"
+    android:contentDescription="@null"
+    android:src="@drawable/ic_baseline_my_location_24"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/normal_100"
+    android:background="@drawable/bg_bottom_sheet"
+    app:layout_constraintTop_toBottomOf="@id/fab_back_choose_location">
+
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline_start"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_begin="@dimen/normal_100"/>
+
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline_end"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_end="@dimen/normal_100"/>
+
+    <View
+      android:id="@+id/handler"
+      android:layout_width="60dp"
+      android:layout_height="@dimen/small_50"
+      android:layout_marginTop="@dimen/normal_125"
+      android:background="@drawable/bg_divider_bottom_sheet"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+      android:id="@+id/text_view_choose_location"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/choose_location"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+      android:layout_marginTop="@dimen/normal_125"
+      app:layout_constraintTop_toBottomOf="@id/handler"
+      app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+
+    <TextView
+      android:id="@+id/text_view_location"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/current_location"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+      android:textColor="@color/primary"
+      android:textStyle="bold"
+      android:layout_marginTop="@dimen/normal_100"
+      app:layout_constraintTop_toBottomOf="@id/text_view_choose_location"
+      app:layout_constraintStart_toStartOf="@id/tv_address_choose_location"/>
+
+    <ImageView
+      android:id="@+id/image_view_location"
+      android:layout_width="@dimen/normal_125"
+      android:layout_height="@dimen/normal_125"
+      android:src="@drawable/ic_baseline_location_on_24"
+      android:contentDescription="@null"
+      app:layout_constraintStart_toStartOf="@id/guideline_start"
+      app:layout_constraintTop_toTopOf="@id/tv_address_choose_location"/>
+
+    <TextView
+      android:id="@+id/tv_address_choose_location"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="@string/default_text"
+      android:textColor="@color/onSurfaceMedium"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+      tools:text="@tools:sample/lorem/random"
+      android:maxLines="2"
+      android:ellipsize="end"
+      android:layout_marginStart="@dimen/normal_100"
+      app:layout_constraintEnd_toEndOf="@id/guideline_end"
+      app:layout_constraintStart_toEndOf="@id/image_view_location"
+      app:layout_constraintTop_toBottomOf="@id/text_view_location"/>
+
+    <ProgressBar
+      android:id="@+id/pb_bottom_sheet"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:progressTint="@color/primary"
+      android:progressBackgroundTint="@color/primary"
+      android:layout_marginTop="@dimen/normal_125"
+      android:layout_marginBottom="@dimen/normal_100"
+      app:layout_constraintVertical_bias="0.0"
+      app:layout_constraintStart_toStartOf="@id/guideline_start"
+      app:layout_constraintEnd_toEndOf="@id/guideline_end"
+      app:layout_constraintTop_toBottomOf="@id/tv_address_choose_location"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+      android:id="@+id/btn_choose_location"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:minHeight="0dp"
+      android:text="@string/choose"
+      style="@style/Button.Small"
+      android:visibility="gone"
+      android:layout_marginTop="@dimen/normal_125"
+      android:layout_marginBottom="@dimen/normal_100"
+      app:layout_constraintVertical_bias="0.0"
+      app:layout_constraintStart_toStartOf="@id/guideline_start"
+      app:layout_constraintEnd_toEndOf="@id/guideline_end"
+      app:layout_constraintTop_toBottomOf="@id/tv_address_choose_location"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

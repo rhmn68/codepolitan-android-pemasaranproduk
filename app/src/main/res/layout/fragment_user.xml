@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:fillViewport="true"
+  android:background="@color/primary"
+  tools:context=".presentation.user.UserFragment">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/profile"
+      android:textColor="@color/onPrimaryHigh"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+      android:layout_marginTop="@dimen/normal_100"
+      android:layout_marginStart="@dimen/normal_100"/>
+
+    <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/image_profile"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="@dimen/normal_100"
+      android:contentDescription="@null"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/bg_backdrop_profile"
+      android:layout_marginTop="@dimen/normal_100">
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/normal_100"/>
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/normal_100"/>
+
+      <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_avatar_user"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@android:color/darker_gray"
+        android:layout_marginTop="@dimen/normal_100"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+      <TextView
+        android:id="@+id/tv_name_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default_text"
+        tools:text="Full Name"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_marginTop="@dimen/normal_100"
+        app:layout_constraintTop_toBottomOf="@id/iv_avatar_user"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+      <TextView
+        android:id="@+id/tv_email_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default_text"
+        tools:text="email@mail.com"
+        android:textColor="@color/onSurfaceMedium"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_marginTop="@dimen/small_100"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_user"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+      <TextView
+        android:id="@+id/tv_phone_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default_text"
+        tools:text="+6281234567890"
+        android:textColor="@color/onSurfaceMedium"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        app:layout_constraintTop_toBottomOf="@id/tv_email_user"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+      <Button
+        android:id="@+id/btn_change_language_user"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/change_language"
+        android:layout_marginBottom="@dimen/normal_100"
+        app:layout_constraintBottom_toTopOf="@id/btn_logout_user"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+      <Button
+        android:id="@+id/btn_logout_user"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:backgroundTint="@color/error"
+        android:layout_marginBottom="@dimen/normal_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </LinearLayout>
+
+</ScrollView>

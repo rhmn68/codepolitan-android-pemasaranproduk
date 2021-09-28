@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:gravity="center"
+  android:background="@color/primary"
+  tools:context=".presentation.splash.SplashActivity">
+
+  <ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_baseline_storefront_64"
+    app:tint="@color/onPrimaryHigh"
+    android:layout_marginBottom="@dimen/small_100"
+    android:contentDescription="@null"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/app_name"
+    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+    android:textColor="@color/onPrimaryHigh"/>
+
+</LinearLayout>

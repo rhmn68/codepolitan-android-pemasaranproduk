@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context=".presentation.sell.SellActivity">
+
+  <com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    app:elevation="0dp">
+
+    <androidx.appcompat.widget.Toolbar
+      android:id="@+id/tb_sell"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:title="@string/add_product"/>
+
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/normal_100"/>
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/normal_100"/>
+
+      <TextView
+        android:id="@+id/text_view_product_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product_information"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_title_product_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/product_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="@dimen/normal_75"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/text_view_product_information">
+
+        <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/et_title_product_sell"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="text"/>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_brand_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/brand"
+        app:helperText="ex: Apple, Android"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="@dimen/normal_100"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/text_input_title_product_sell">
+
+        <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/et_brand_sell"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="text"/>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_model_product_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/model"
+        app:helperText="ex: MacPro 2017"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="@dimen/normal_100"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/text_input_brand_sell">
+
+        <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/et_model_product_sell"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="text"/>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_year_product_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/years_of_production"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="@dimen/normal_100"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/text_input_model_product_sell">
+
+        <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/et_year_product_sell"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="number"/>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_price_product_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/price"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="@dimen/normal_100"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/text_input_year_product_sell">
+
+        <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/et_price_product_sell"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="number"/>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <TextView
+        android:id="@+id/text_view_condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/condition"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_marginTop="@dimen/normal_100"
+        app:layout_constraintTop_toBottomOf="@id/text_input_price_product_sell"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+
+      <RadioGroup
+        android:id="@+id/rg_condition_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/text_view_condition">
+
+        <RadioButton
+          android:id="@+id/rb_new_sell"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:buttonTint="@color/button_radio_tint"
+          android:text="@string/new_condition"/>
+
+        <RadioButton
+          android:id="@+id/rb_second_hand_sell"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:buttonTint="@color/button_radio_tint"
+          android:text="@string/second_hand"/>
+
+      </RadioGroup>
+
+      <TextView
+        android:id="@+id/text_view_product_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product_address"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:layout_marginTop="@dimen/normal_150"
+        app:layout_constraintTop_toBottomOf="@id/rg_condition_sell"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+
+      <ImageButton
+        android:id="@+id/btn_map_sell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_outline"
+        android:src="@drawable/ic_baseline_map_24"
+        android:padding="@dimen/normal_100"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="@id/text_input_address_sell"
+        app:layout_constraintBottom_toBottomOf="@id/text_input_address_sell"/>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_address_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="@dimen/normal_100"
+        android:layout_marginStart="@dimen/normal_100"
+        app:layout_constraintStart_toEndOf="@id/btn_map_sell"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/text_view_product_address">
+
+        <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/et_address_sell"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="textMultiLine"/>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <Button
+        android:id="@+id/btn_submit_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_marginTop="@dimen/normal_200"
+        android:layout_marginBottom="@dimen/normal_100"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/text_input_address_sell"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </ScrollView>
+
+</LinearLayout>
