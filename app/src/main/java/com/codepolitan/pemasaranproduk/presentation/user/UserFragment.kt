@@ -1,6 +1,8 @@
 package com.codepolitan.pemasaranproduk.presentation.user
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings.ACTION_LOCALE_SETTINGS
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,7 +41,8 @@ class UserFragment : Fragment() {
     }
     
     binding.btnChangeLanguageUser.setOnClickListener {
-      Toast.makeText(context, "Change Language", Toast.LENGTH_SHORT).show()
+      val intent = Intent(ACTION_LOCALE_SETTINGS)
+      startActivity(intent)
     }
   }
 }

@@ -5,9 +5,11 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3fe990be87bc5fd1bd9a30e0a95fdf14/jetified-security-crypto-1.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3fe990be87bc5fd1bd9a30e0a95fdf14/jetified-security-crypto-1.0.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3fe990be87bc5fd1bd9a30e0a95fdf14/security-crypto-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/697e30d5f62188ca36d2b4f548fb2556/security-crypto-1.0.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/697e30d5f62188ca36d2b4f548fb2556/security-crypto-1.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/697e30d5f62188ca36d2b4f548fb2556/security-crypto-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2373df916184bcbaddd319fd6591e6c/security-crypto-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e95dc0abaa98867ab79771e49f930b6c/transformed/security-crypto-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e95dc0abaa98867ab79771e49f930b6c/transformed/security-crypto-1.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e95dc0abaa98867ab79771e49f930b6c/transformed/security-crypto-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

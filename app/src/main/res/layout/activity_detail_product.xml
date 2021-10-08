@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.detailproduct.DetailProductActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_top_detail_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryVariant"
+        android:padding="@dimen/normal_100"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:background="@android:color/transparent"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/et_search"
+            app:tint="@color/onPrimaryHigh"/>
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:drawablePadding="@dimen/small_100"
+            android:background="@drawable/bg_text_field_search"
+            android:hint="@string/search"
+            android:paddingStart="@dimen/normal_75"
+            android:paddingEnd="@dimen/normal_75"
+            android:paddingTop="@dimen/small_100"
+            android:paddingBottom="@dimen/small_100"
+            android:inputType="text"
+            android:autofillHints="@null"
+            android:imeOptions="actionSearch"
+            android:layout_marginStart="@dimen/normal_100"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_back_search"/>
+
+            <LinearLayout
+                android:id="@+id/btn_current_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@id/et_search"
+                android:layout_marginTop="@dimen/normal_100">
+
+                <ImageView
+                    android:layout_width="@dimen/normal_125"
+                    android:layout_height="@dimen/normal_125"
+                    android:src="@drawable/ic_baseline_location_on_24"
+                    app:tint="@color/onPrimaryHigh"
+                    android:contentDescription="@null"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/your_location"
+                    android:textColor="@color/onPrimaryHigh"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginStart="@dimen/small_100"
+                    android:layout_marginEnd="@dimen/small_100"/>
+
+                <ImageView
+                    android:layout_width="@dimen/normal_125"
+                    android:layout_height="@dimen/normal_125"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    app:tint="@color/onPrimaryHigh"
+                    android:contentDescription="@null"/>
+
+            </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/container_top_detail_product"
+        app:layout_constraintBottom_toBottomOf="@id/container_contact">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/normal_100"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/normal_100"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_image_slider"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <me.relex.circleindicator.CircleIndicator2
+                android:id="@+id/ci_image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@id/rv_image_slider"/>
+
+            <TextView
+                android:id="@+id/tv_price_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text"
+                tools:text="Rp.100.000"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_marginTop="@dimen/normal_100"
+                app:layout_constraintTop_toBottomOf="@id/rv_image_slider"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+            <TextView
+                android:id="@+id/tv_title_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text"
+                tools:text="@tools:sample/lorem/random"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/onSurfaceMedium"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintTop_toBottomOf="@id/tv_price_product"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+            <ImageView
+                android:id="@+id/image_view_location"
+                android:layout_width="@dimen/normal_125"
+                android:layout_height="@dimen/normal_125"
+                android:src="@drawable/ic_baseline_location_on_24"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="@id/tv_location_product"
+                app:layout_constraintBottom_toBottomOf="@id/tv_location_product"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/tv_location_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text"
+                tools:text="@tools:sample/lorem/random"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/primary"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_marginTop="@dimen/normal_75"
+                android:layout_marginStart="@dimen/small_100"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_product"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toEndOf="@id/image_view_location"/>
+
+            <View
+                android:id="@+id/divider_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/onSurfaceDisabled"
+                android:layout_marginTop="@dimen/normal_100"
+                app:layout_constraintTop_toBottomOf="@id/tv_location_product"/>
+
+            <TextView
+                android:id="@+id/text_view_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_marginTop="@dimen/normal_100"
+                app:layout_constraintTop_toBottomOf="@id/divider_1"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+
+            <TextView
+                android:id="@+id/tv_description_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_100"
+                android:lineSpacingExtra="@dimen/small_50"
+                android:text="@string/default_text"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis egestas sem commodo nunc sociis. Vestibulum suspendisse consectetur quis ac velit id rhoncus blandit lacus. Tortor dolor, fermentum neque vestibulum congue laoreet tincidunt vitae enim. "
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="@color/onSurfaceMedium"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/text_view_description"/>
+
+            <TextView
+                android:id="@+id/text_view_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/brand"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_marginTop="@dimen/normal_100"
+                app:layout_constraintTop_toBottomOf="@id/tv_description_product"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+
+            <TextView
+                android:id="@+id/tv_brand_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_100"
+                android:lineSpacingExtra="@dimen/small_50"
+                android:text="@string/default_text"
+                tools:text="Apple"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="@color/onSurfaceMedium"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/text_view_brand"/>
+
+            <TextView
+                android:id="@+id/text_view_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/model"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_marginTop="@dimen/normal_100"
+                app:layout_constraintTop_toBottomOf="@id/tv_brand_product"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+
+            <TextView
+                android:id="@+id/tv_model_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_100"
+                android:lineSpacingExtra="@dimen/small_50"
+                android:text="@string/default_text"
+                tools:text="Macbook Pro 2017"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="@color/onSurfaceMedium"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/text_view_model"/>
+
+            <TextView
+                android:id="@+id/text_view_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/years_of_production"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_marginTop="@dimen/normal_100"
+                app:layout_constraintTop_toBottomOf="@id/tv_model_product"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+
+            <TextView
+                android:id="@+id/tv_year_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_100"
+                android:lineSpacingExtra="@dimen/small_50"
+                android:text="@string/default_text"
+                tools:text="2017"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="@color/onSurfaceMedium"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/text_view_year"/>
+
+            <TextView
+                android:id="@+id/text_view_location_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/years_of_production"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_marginTop="@dimen/normal_100"
+                app:layout_constraintTop_toBottomOf="@id/tv_year_product"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+
+            <WebView
+                android:id="@+id/wv_detail_product"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:layout_marginTop="@dimen/small_100"
+                android:layout_marginBottom="@dimen/normal_175"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@id/text_view_location_product"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="WebViewLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/container_contact"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/normal_100"
+            android:layout_marginEnd="@dimen/normal_100">
+
+            <Button
+                android:id="@+id/btn_chat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/chat"
+                app:icon="@drawable/ic_baseline_chat_24"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:iconGravity="textStart"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/small_100"/>
+
+            <Button
+                android:id="@+id/btn_call"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/call"
+                app:icon="@drawable/ic_baseline_call_24"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:iconGravity="textStart"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/small_100"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

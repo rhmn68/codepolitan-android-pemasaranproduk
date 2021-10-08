@@ -3,7 +3,9 @@ package com.codepolitan.pemasaranproduk.presentation.splash
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
 import com.codepolitan.pemasaranproduk.R
+import com.codepolitan.pemasaranproduk.data.hawkstorage.HawkStorage
 import com.codepolitan.pemasaranproduk.presentation.login.LoginActivity
+import com.codepolitan.pemasaranproduk.presentation.main.MainActivity
 import com.codepolitan.pemasaranproduk.utils.startActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -18,8 +20,17 @@ class SplashActivity : AppCompatActivity() {
     Handler(Looper.getMainLooper()).postDelayed({
       startActivity<LoginActivity>()
       finish()
-      
-      finishAffinity()
     },2000)
+  }
+
+  private fun checkIsLogin(){
+    val isLogin = HawkStorage.instance(this).isLogin()
+    if (isLogin){
+      startActivity<MainActivity>()
+      finish()
+    }else{
+      startActivity<LoginActivity>()
+      finish()
+    }
   }
 }

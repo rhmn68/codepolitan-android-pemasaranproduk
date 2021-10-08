@@ -3,11 +3,14 @@ package com.codepolitan.pemasaranproduk.presentation.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.codepolitan.pemasaranproduk.BuildConfig
 import com.codepolitan.pemasaranproduk.R
 import com.codepolitan.pemasaranproduk.databinding.ActivityMainBinding
 import com.codepolitan.pemasaranproduk.presentation.home.HomeFragment
 import com.codepolitan.pemasaranproduk.presentation.myads.MyAdsFragment
+import com.codepolitan.pemasaranproduk.presentation.sell.SellActivity
 import com.codepolitan.pemasaranproduk.presentation.user.UserFragment
+import com.codepolitan.pemasaranproduk.utils.startActivity
 
 class MainActivity : AppCompatActivity() {
   
@@ -42,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         }
         
         R.id.action_sell -> {
-    
+          startActivity<SellActivity>()
         }
         
         R.id.action_my_ads -> {

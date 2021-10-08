@@ -4,13 +4,18 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.location.Geocoder
+import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import com.codepolitan.pemasaranproduk.databinding.*
+import com.google.android.gms.maps.model.LatLng
 import java.io.Serializable
+import java.util.*
 
 fun View.visible(){ visibility = View.VISIBLE }
 fun View.gone(){ visibility = View.GONE }
@@ -108,4 +113,29 @@ fun showDialogLoading(context: Context): AlertDialog{
     .setView(binding.root)
     .setCancelable(true)
     .create()
+}
+
+/**
+ * Get height screen
+ * */
+fun Activity.getHeightScreen(): Int{
+  return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+    val windowMetrics = windowManager.currentWindowMetrics
+    windowMetrics.bounds.height()
+  } else {
+    val displayMetrics = DisplayMetrics()
+    @Suppress("DEPRECATION")
+    windowManager.defaultDisplay.getMetrics(displayMetrics)
+    displayMetrics.heightPixels
+  }
+}
+
+fun LatLng.convertToAddress(context: Context): String?{
+  val geocode = Geocoder(context, Locale.getDefault())
+  val addresses = geocode.getFromLocation(this.latitude, this.longitude, 1)
+
+  if (addresses.size > 0){
+    return addresses[0].getAddressLine(0)
+  }
+  return null
 }

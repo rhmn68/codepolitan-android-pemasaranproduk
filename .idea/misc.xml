@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/drawable/bg_text_field_search.xml" value="0.33611111111111114" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/drawable/bg_upload_photo_inactive.xml" value="0.3472222222222222" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/activity_detail_product.xml" value="0.24365942028985507" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/activity_location.xml" value="0.2341485507246377" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/activity_result_product.xml" value="0.3536458333333333" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/activity_sell.xml" value="0.25" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/activity_upload_photo.xml" value="0.25" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/bottom_sheet_choose_location.xml" value="0.21105072463768115" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/fragment_user.xml" value="0.18020833333333333" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/item_image_slider.xml" value="0.24365942028985507" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/layout/item_upload_photo.xml" value="0.5" />
+        <entry key="..\:/projects/codepolitan/pemasaran_produk/project/pemasaran_produk/app/src/main/res/xml/network_security_config.xml" value="0.3385416666666667" />
         <entry key="app/src/main/res/drawable/bg_backdrop_profile.xml" value="0.37083333333333335" />
         <entry key="app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.3626149131767109" />
         <entry key="app/src/main/res/drawable/bg_btn_outline.xml" value="0.37083333333333335" />
@@ -19,7 +33,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

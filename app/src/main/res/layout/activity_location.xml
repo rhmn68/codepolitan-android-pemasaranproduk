@@ -32,4 +32,8 @@
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 
+  <include
+    android:id="@+id/bottom_sheet_choose_location"
+    layout="@layout/bottom_sheet_choose_location"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
