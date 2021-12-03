@@ -60,4 +60,13 @@
     <string name="field_phone">Please field your phone</string>
     <string name="valid_phone">Please use valid phone</string>
     <string name="field_didnt_match">Password didn\'t match</string>
+
+    <string name="field_title">Please field your title</string>
+    <string name="field_desc">Please field your description</string>
+    <string name="field_brand">Please field your brand</string>
+    <string name="field_model">Please field your model</string>
+    <string name="field_year_production">Please field your years of production</string>
+    <string name="field_price">Please field your price</string>
+    <string name="field_address">Please field your address</string>
+    <string name="field_location">Please input your location</string>
 </resources>

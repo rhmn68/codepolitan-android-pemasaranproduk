@@ -1,112 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/swipe_home"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:fillViewport="true"
   tools:context=".presentation.home.HomeFragment">
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+  <androidx.core.widget.NestedScrollView
+    android:id="@+id/nested_home"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline_start"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintGuide_begin="@dimen/normal_100"
-      android:orientation="vertical"/>
-
-    <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline_end"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintGuide_end="@dimen/normal_100"
-      android:orientation="vertical"/>
-
-    <LinearLayout
-      android:id="@+id/container_top_home"
+    <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:background="@color/primaryVariant"
-      android:padding="@dimen/normal_100"
-      app:layout_constraintTop_toTopOf="parent">
+      android:layout_height="wrap_content">
 
-      <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_search_home"
-        android:layout_width="match_parent"
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_baseline_search_24"
-        android:drawablePadding="@dimen/small_100"
-        android:background="@drawable/bg_search"
-        android:hint="@string/search"
-        android:textAlignment="textStart"
-        android:paddingStart="@dimen/normal_75"
-        android:paddingEnd="@dimen/normal_75"
-        android:paddingTop="@dimen/small_100"
-        android:paddingBottom="@dimen/small_100"/>
+        app:layout_constraintGuide_begin="@dimen/normal_100"
+        android:orientation="vertical"/>
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_end="@dimen/normal_100"
+        android:orientation="vertical"/>
 
       <LinearLayout
-        android:id="@+id/btn_current_location"
+        android:id="@+id/container_top_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/normal_75">
+        android:orientation="vertical"
+        android:background="@color/primaryVariant"
+        android:padding="@dimen/normal_100"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-          android:layout_width="@dimen/normal_125"
-          android:layout_height="@dimen/normal_125"
-          android:src="@drawable/ic_baseline_location_on_24"
-          app:tint="@color/onPrimaryHigh"
-          android:contentDescription="@null"/>
-
-        <TextView
-          android:id="@+id/tv_current_location"
-          android:layout_width="0dp"
+        <EditText
+          android:id="@+id/et_search_home"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="@string/your_location"
-          android:textColor="@color/onPrimaryHigh"
-          android:maxLines="1"
-          android:ellipsize="end"
-          android:layout_marginStart="@dimen/small_100"
-          android:layout_marginEnd="@dimen/small_100"/>
+          android:drawableStart="@drawable/ic_baseline_search_24"
+          android:drawablePadding="@dimen/small_100"
+          android:background="@drawable/bg_text_field_search"
+          android:hint="@string/search"
+          android:paddingStart="@dimen/normal_75"
+          android:paddingEnd="@dimen/normal_75"
+          android:paddingTop="@dimen/normal_75"
+          android:paddingBottom="@dimen/normal_75"
+          android:inputType="text"
+          android:imeOptions="actionSearch"
+          android:textAlignment="textStart"
+          android:autofillHints="@null" />
 
-        <ImageView
-          android:layout_width="@dimen/normal_125"
-          android:layout_height="@dimen/normal_125"
-          android:contentDescription="@null"
-          android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-          app:tint="@color/onPrimaryHigh" />
+        <LinearLayout
+          android:id="@+id/btn_current_location"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:gravity="center_vertical"
+          android:layout_marginTop="@dimen/normal_75">
+
+          <ImageView
+            android:layout_width="@dimen/normal_125"
+            android:layout_height="@dimen/normal_125"
+            android:src="@drawable/ic_baseline_location_on_24"
+            app:tint="@color/onPrimaryHigh"
+            android:contentDescription="@null"/>
+
+          <TextView
+            android:id="@+id/tv_current_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/your_location"
+            android:textColor="@color/onPrimaryHigh"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginStart="@dimen/small_100"
+            android:layout_marginEnd="@dimen/small_100"/>
+
+          <ImageView
+            android:layout_width="@dimen/normal_125"
+            android:layout_height="@dimen/normal_125"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:tint="@color/onPrimaryHigh" />
+
+        </LinearLayout>
 
       </LinearLayout>
 
-    </LinearLayout>
+      <TextView
+        android:id="@+id/text_view_recommendation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recommendation"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_marginTop="@dimen/normal_100"
+        app:layout_constraintTop_toBottomOf="@id/container_top_home"/>
 
-    <TextView
-      android:id="@+id/text_view_recommendation"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/recommendation"
-      app:layout_constraintStart_toStartOf="@id/guideline_start"
-      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-      android:layout_marginTop="@dimen/normal_100"
-      app:layout_constraintTop_toBottomOf="@id/container_top_home"/>
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recommend_product_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/small_100"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_product"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2"
+        app:layout_constraintTop_toBottomOf="@id/text_view_recommendation"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/rv_recommend_product_home"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:padding="@dimen/small_100"
-      android:clipToPadding="false"
-      tools:listitem="@layout/item_product"
-      app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-      app:spanCount="2"
-      app:layout_constraintTop_toBottomOf="@id/text_view_recommendation"/>
+      <ProgressBar
+        android:id="@+id/pb_load_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/rv_recommend_product_home"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+      <ImageView
+        android:id="@+id/iv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_empty"
+        android:contentDescription="@null"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.location.Geocoder
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
@@ -14,6 +15,7 @@ import android.view.View
 import android.widget.Toast
 import com.codepolitan.pemasaranproduk.databinding.*
 import com.google.android.gms.maps.model.LatLng
+import java.io.FileNotFoundException
 import java.io.Serializable
 import java.util.*
 
@@ -138,4 +140,25 @@ fun LatLng.convertToAddress(context: Context): String?{
     return addresses[0].getAddressLine(0)
   }
   return null
+}
+
+fun getRealPath(context: Context, uri: Uri): String {
+  var realPath = ""
+  try {
+    if (uri.scheme.equals("content")){
+      val projection = arrayOf("_data")
+      val cursor = context.contentResolver.query(uri, projection, null, null, null)
+      if (cursor != null){
+        val idColumn = cursor.getColumnIndexOrThrow("_data")
+        cursor.moveToFirst()
+        realPath = cursor.getString(idColumn)
+        cursor.close()
+      }
+    }else if (uri.scheme.equals("file")){
+      realPath = uri.path.toString()
+    }
+  }catch (e: FileNotFoundException){
+    e.printStackTrace()
+  }
+  return realPath
 }

@@ -1,42 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:id="@+id/swipe_my_ads"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:fillViewport="true"
   tools:context=".presentation.myads.MyAdsFragment">
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+  <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <com.google.android.material.appbar.AppBarLayout
-      android:id="@+id/app_bar_my_ads"
+    <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:elevation="0dp"
-      android:background="@android:color/transparent"
-      app:layout_constraintTop_toTopOf="parent">
+      android:layout_height="wrap_content">
 
-      <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb_my_ads"
+      <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_my_ads"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/my_ads"/>
+        app:elevation="0dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <androidx.appcompat.widget.Toolbar
+          android:id="@+id/tb_my_ads"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:title="@string/my_ads"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/rv_my_ads"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:clipToPadding="false"
-      android:padding="@dimen/small_100"
-      tools:listitem="@layout/item_my_ad"
-      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      app:layout_constraintTop_toBottomOf="@id/app_bar_my_ads"/>
+      </com.google.android.material.appbar.AppBarLayout>
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_my_ads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:padding="@dimen/small_100"
+        tools:listitem="@layout/item_my_ad"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_my_ads"/>
 
-</androidx.core.widget.NestedScrollView>
+      <ProgressBar
+        android:id="@+id/pb_load_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/rv_my_ads"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+      <ImageView
+        android:id="@+id/iv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_empty"
+        android:visibility="gone"
+        android:contentDescription="@null"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
