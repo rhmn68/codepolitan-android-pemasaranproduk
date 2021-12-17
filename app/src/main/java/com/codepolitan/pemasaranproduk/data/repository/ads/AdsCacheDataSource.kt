@@ -7,7 +7,7 @@ class AdsCacheDataSource {
 
     fun getDataFindAds() = findAdsResponse
 
-    fun saveDataFindAds(findAdsResponse: ProductResponse){
+    fun saveDataFindAds(findAdsResponse: ProductResponse?){
         this.findAdsResponse = findAdsResponse
     }
 }

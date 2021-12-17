@@ -51,7 +51,7 @@ interface ProductService {
         @Query("size") sizeData: Int = 10
     ) : Response<ProductResponse>
 
-    @DELETE("delete/{id}")
+    @DELETE("product/{id}")
     suspend fun deleteProduct(
         @Header("authorization") token: String,
         @Path("id") id: Int

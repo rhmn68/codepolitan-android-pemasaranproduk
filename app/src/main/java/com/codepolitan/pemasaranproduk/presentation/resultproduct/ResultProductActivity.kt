@@ -1,13 +1,18 @@
 package com.codepolitan.pemasaranproduk.presentation.resultproduct
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.inputmethod.EditorInfo
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.codepolitan.pemasaranproduk.data.model.Resource
 import com.codepolitan.pemasaranproduk.databinding.ActivityResultProductBinding
 import com.codepolitan.pemasaranproduk.presentation.detailproduct.DetailProductActivity
-import com.codepolitan.pemasaranproduk.utils.showDialogError
-import com.codepolitan.pemasaranproduk.utils.startActivity
+import com.codepolitan.pemasaranproduk.presentation.location.LocationActivity
+import com.codepolitan.pemasaranproduk.utils.*
 import com.google.android.gms.maps.model.LatLng
 
 class ResultProductActivity : AppCompatActivity() {
@@ -15,6 +20,21 @@ class ResultProductActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultProductBinding
     private lateinit var resultProductAdapter: ResultProductAdapter
     private lateinit var resultProductViewModel: ResultProductViewModel
+    private var location: LatLng? = null
+
+    private val startMapResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){
+        if (it.resultCode == Activity.RESULT_OK){
+            val data = it.data
+            val mLocation = data?.getParcelableExtra<LatLng>(LocationActivity.EXTRA_LOCATION)
+            if (mLocation != null){
+                location = mLocation
+                val address = location?.convertToAddress(this)
+                binding.tvCurrentLocation.text = address.toString()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +57,29 @@ class ResultProductActivity : AppCompatActivity() {
                 DetailProductActivity.EXTRA_PRODUCT to dataProduct
             )
         }
+
+        binding.swipeResultProduct.setOnRefreshListener {
+            getDataIntent()
+        }
+
+        binding.btnCurrentLocation.setOnClickListener {
+            val intent = Intent(this, LocationActivity::class.java)
+            startMapResult.launch(intent)
+        }
+
+        binding.etSearch.setOnEditorActionListener { textView, actionId, _ ->
+            val title = textView.text.toString().trim()
+
+            if (actionId == EditorInfo.IME_ACTION_SEARCH){
+                if (title.isEmpty()){
+                    showDialogNotification(this, "Please field your search")
+                }else{
+                    getDataProduct(title, location, true)
+                }
+            }
+            return@setOnEditorActionListener false
+        }
+
     }
 
     private fun getDataIntent() {
@@ -44,13 +87,13 @@ class ResultProductActivity : AppCompatActivity() {
             val title = intent.getStringExtra(EXTRA_TITLE)
             val location = intent.getParcelableExtra<LatLng>(EXTRA_LOCATION)
 
-            getDataProduct(title, location)
+            getDataProduct(title, location, false)
         }
     }
 
-    private fun getDataProduct(title: String?, location: LatLng?) {
+    private fun getDataProduct(title: String?, location: LatLng?, isNew: Boolean) {
         resultProductViewModel
-            .findAds(location?.latitude!!, location.longitude, title.toString())
+            .findAds(location?.latitude!!, location.longitude, title.toString(), isNew)
             .observe(this){ state ->
                 when(state){
                     Resource.Empty -> {
@@ -66,6 +109,7 @@ class ResultProductActivity : AppCompatActivity() {
                     }
                     is Resource.Success -> {
                         val data = state.data
+                        Log.d("coba", "getDataProduct: $data")
                         resultProductAdapter.differ.submitList(data.dataProduct)
 
                         binding.swipeResultProduct.isRefreshing = false

@@ -3,7 +3,7 @@ package com.codepolitan.pemasaranproduk.data.model.product
 
 import com.google.gson.annotations.SerializedName
 
-data class DataCreateAds(
+data class UpdateProductRequest(
     @SerializedName("address")
     val address: String? = null,
     @SerializedName("brand")
@@ -12,16 +12,12 @@ data class DataCreateAds(
     val categoryId: Int? = null,
     @SerializedName("condition")
     val condition: Boolean? = null,
-    @SerializedName("createdAt")
-    val createdAt: String? = null,
     @SerializedName("description")
     val description: String? = null,
-    @SerializedName("id")
-    val id: Int? = null,
-    @SerializedName("loc_latitude")
-    val locLatitude: Double? = null,
-    @SerializedName("loc_longitude")
-    val locLongitude: Double? = null,
+    @SerializedName("location_lat")
+    val locationLat: String? = null,
+    @SerializedName("location_long")
+    val locationLong: String? = null,
     @SerializedName("model")
     val model: String? = null,
     @SerializedName("price")
@@ -30,10 +26,6 @@ data class DataCreateAds(
     val sold: Boolean? = null,
     @SerializedName("title")
     val title: String? = null,
-    @SerializedName("updatedAt")
-    val updatedAt: String? = null,
-    @SerializedName("user_id")
-    val userId: Int? = null,
     @SerializedName("year")
     val year: String? = null
 )

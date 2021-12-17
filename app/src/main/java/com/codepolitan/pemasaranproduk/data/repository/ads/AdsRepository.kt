@@ -12,10 +12,13 @@ object AdsRepository {
     private val adsRemoteDataSource = AdsRemoteDataSource()
     private val adsCacheDataSource = AdsCacheDataSource()
 
-    fun findAds(lat: Double, lon: Double, title: String): Flow<Resource<ProductResponse>> = flow {
+    fun findAds(lat: Double, lon: Double, title: String, isNew: Boolean): Flow<Resource<ProductResponse>> = flow {
         emit(Resource.Loading)
         var productResponse: ProductResponse? = null
 
+        if (isNew){
+            adsCacheDataSource.saveDataFindAds(null)
+        }
         try {
             productResponse = adsCacheDataSource.getDataFindAds()
         }catch (e: Exception){

@@ -8,6 +8,7 @@
   tools:context=".presentation.myads.MyAdsFragment">
 
   <androidx.core.widget.NestedScrollView
+    android:id="@+id/nested_my_ads"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">

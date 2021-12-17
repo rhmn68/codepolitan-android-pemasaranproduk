@@ -5,6 +5,6 @@ import androidx.lifecycle.asLiveData
 import com.codepolitan.pemasaranproduk.data.repository.ads.AdsRepository
 
 class ResultProductViewModel: ViewModel() {
-    fun findAds(lat: Double, lon: Double, title: String) =
-        AdsRepository.findAds(lat, lon, title).asLiveData()
+    fun findAds(lat: Double, lon: Double, title: String, isNew: Boolean) =
+        AdsRepository.findAds(lat, lon, title, isNew).asLiveData()
 }

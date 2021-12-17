@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
@@ -152,7 +153,7 @@ class HomeFragment : Fragment() {
 
   private fun onAction() {
     binding.etSearchHome.setOnEditorActionListener { textView, actionId, _ ->
-      val title = textView.toString().trim()
+      val title = textView.text.toString().trim()
 
       if (actionId == EditorInfo.IME_ACTION_SEARCH){
         if (title.isEmpty()){
@@ -176,6 +177,10 @@ class HomeFragment : Fragment() {
       (activity as MainActivity).startActivity<DetailProductActivity>(
         DetailProductActivity.EXTRA_PRODUCT to it
       )
+    }
+
+    binding.swipeHome.setOnRefreshListener {
+      getDataProduct(true)
     }
   }
   

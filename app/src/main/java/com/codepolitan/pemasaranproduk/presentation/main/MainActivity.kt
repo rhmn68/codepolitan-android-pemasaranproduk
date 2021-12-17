@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         }
         
         R.id.action_sell -> {
-          startActivity<SellActivity>()
+          startActivity<SellActivity>(SellActivity.EXTRA_IS_EDIT to false)
         }
         
         R.id.action_my_ads -> {

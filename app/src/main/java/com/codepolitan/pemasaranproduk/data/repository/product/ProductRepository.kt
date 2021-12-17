@@ -175,7 +175,7 @@ object ProductRepository {
             myAdsPage = 0
         }
 
-        val apiResponse = productRemoteDataSource.showMyAds(token, userId, pageProduct).first()
+        val apiResponse = productRemoteDataSource.showMyAds(token, userId, myAdsPage).first()
 
         //Data awal null
         if (productResponse != null){

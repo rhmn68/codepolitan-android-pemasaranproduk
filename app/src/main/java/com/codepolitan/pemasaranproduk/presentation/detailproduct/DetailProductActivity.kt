@@ -61,7 +61,7 @@ class DetailProductActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.btnChat.setOnClickListener {
+        binding.btnCall.setOnClickListener {
             val number = "+628999488990"
             val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
             startActivity(dialPhoneIntent)

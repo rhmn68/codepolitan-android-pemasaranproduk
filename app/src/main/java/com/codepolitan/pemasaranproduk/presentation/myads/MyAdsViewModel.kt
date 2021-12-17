@@ -13,5 +13,5 @@ class MyAdsViewModel: ViewModel() {
         ProductRepository.deleteProduct(token, id).asLiveData()
 
     fun updateProduct(token: String, body: String, idProduct: Int) =
-        ProductRepository.updateAds(token, body, idProduct)
+        ProductRepository.updateAds(token, body, idProduct).asLiveData()
 }

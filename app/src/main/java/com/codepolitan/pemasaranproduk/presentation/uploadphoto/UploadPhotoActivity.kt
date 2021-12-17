@@ -123,7 +123,7 @@ class UploadPhotoActivity : AppCompatActivity() {
         }
     }
 
-    private fun uploadPhotoToServer(images: java.util.ArrayList<ImageProduct?>) {
+    private fun uploadPhotoToServer(images: ArrayList<ImageProduct?>) {
         val imagesParts = mutableListOf<MultipartBody.Part>()
 
         for (image in images){
@@ -134,7 +134,7 @@ class UploadPhotoActivity : AppCompatActivity() {
                 val typeFile = contentResolver.getType(uri)
                 val mediaTypeFile= typeFile?.toMediaType()
                 val requestPhotoFile = file.asRequestBody(mediaTypeFile)
-                val multipartBody = MultipartBody.Part.createFormData("file", file.name, requestPhotoFile)
+                val multipartBody = MultipartBody.Part.createFormData("files", file.name, requestPhotoFile)
                 imagesParts.add(multipartBody)
             }
         }
@@ -171,7 +171,7 @@ class UploadPhotoActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkValid(images: java.util.ArrayList<ImageProduct?>): Boolean {
+    private fun checkValid(images: ArrayList<ImageProduct?>): Boolean {
         var isValid = false
         for (image in images){
             if (image?.path != null || image?.image != null){

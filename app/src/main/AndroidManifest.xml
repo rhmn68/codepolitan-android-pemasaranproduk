@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codepolitan.pemasaranproduk">
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.codepolitan.pemasaranproduk">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -19,7 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PemasaranProduk"
         android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config">
+        android:networkSecurityConfig="@xml/network_security_config"
+      tools:targetApi="n">
         <activity
             android:name=".presentation.resultproduct.ResultProductActivity"
             android:exported="true" />
